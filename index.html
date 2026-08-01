@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Les Conférences de Karen — Talks &amp; Lectures</title>
+  <meta name="description" content="A curated répertoire of talks and lectures by Karen — cuisine, history and culture, told with a certain je ne sais quoi.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --sea-deep: #073b4c;
+      --sea-mid: #0a5c6e;
+      --lagoon: #118ab2;
+      --turquoise: #06d6a0;
+      --turquoise-soft: #7fe3cd;
+      --foam: #f3fbf9;
+      --shell: #fdfcf9;
+      --ink: #10333c;
+      --gold: #c8a24b;
+      --hairline: rgba(7, 59, 76, 0.16);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Jost', 'Helvetica Neue', sans-serif;
+      font-weight: 300;
+      color: var(--ink);
+      background: var(--shell);
+      line-height: 1.65;
+    }
+
+    /* ---------- Hero ---------- */
+    header {
+      position: relative;
+      color: var(--foam);
+      text-align: center;
+      padding: 6.5rem 1.5rem 8.5rem;
+      background:
+        radial-gradient(ellipse 120% 70% at 50% -10%, rgba(6, 214, 160, 0.35), transparent 60%),
+        linear-gradient(170deg, #0a5c6e 0%, #0d6e86 35%, #118ab2 65%, #073b4c 100%);
+      overflow: hidden;
+    }
+
+    /* mermaid scales, drawn in pure CSS */
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 50% 130%, rgba(243, 251, 249, 0.10) 24%, transparent 25%);
+      background-size: 42px 36px;
+      background-position: 0 0, 21px 18px;
+      opacity: 0.9;
+      pointer-events: none;
+    }
+    header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 50% 130%, rgba(127, 227, 205, 0.12) 24%, transparent 25%);
+      background-size: 42px 36px;
+      background-position: 21px 18px;
+      pointer-events: none;
+    }
+
+    .hero-inner { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; }
+
+    .surtitle {
+      font-size: 0.78rem;
+      letter-spacing: 0.42em;
+      text-transform: uppercase;
+      color: var(--turquoise-soft);
+      margin-bottom: 1.6rem;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(2.6rem, 6vw, 4.4rem);
+      line-height: 1.08;
+      letter-spacing: 0.01em;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--turquoise-soft);
+    }
+
+    .hero-rule {
+      width: 64px;
+      height: 1px;
+      background: var(--gold);
+      margin: 2rem auto 1.6rem;
+    }
+
+    .tagline {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      font-size: 1.25rem;
+      color: rgba(243, 251, 249, 0.85);
+    }
+
+    /* wave divider */
+    .wave {
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      line-height: 0;
+    }
+    .wave svg { display: block; width: 100%; height: 70px; }
+
+    /* ---------- Main ---------- */
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 4.5rem 1.5rem 2rem;
+    }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      margin-bottom: 3rem;
+    }
+    .section-label span {
+      font-size: 0.74rem;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      color: var(--sea-mid);
+      white-space: nowrap;
+    }
+    .section-label::before,
+    .section-label::after {
+      content: "";
+      height: 1px;
+      background: var(--hairline);
+      flex: 1;
+    }
+
+    /* ---------- Talk cards ---------- */
+    details {
+      background: #fff;
+      border: 1px solid var(--hairline);
+      border-radius: 2px;
+      margin-bottom: 1.4rem;
+      box-shadow: 0 1px 0 rgba(7, 59, 76, 0.03);
+      transition: box-shadow 0.35s ease, border-color 0.35s ease;
+    }
+
+    details:hover {
+      border-color: rgba(17, 138, 178, 0.45);
+      box-shadow: 0 10px 30px -18px rgba(7, 59, 76, 0.35);
+    }
+
+    details[open] {
+      border-color: rgba(17, 138, 178, 0.55);
+      box-shadow: 0 14px 36px -18px rgba(7, 59, 76, 0.35);
+    }
+
+    summary {
+      list-style: none;
+      cursor: pointer;
+      display: flex;
+      align-items: baseline;
+      gap: 1.25rem;
+      padding: 1.7rem 1.9rem;
+    }
+    summary::-webkit-details-marker { display: none; }
+
+    .talk-no {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--gold);
+      min-width: 2.2rem;
+    }
+
+    .talk-heading { flex: 1; }
+
+    .talk-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 600;
+      font-size: clamp(1.35rem, 3vw, 1.65rem);
+      line-height: 1.25;
+      color: var(--sea-deep);
+      transition: color 0.3s ease;
+    }
+    summary:hover .talk-title { color: var(--lagoon); }
+
+    .talk-sub {
+      margin-top: 0.35rem;
+      font-size: 0.82rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(16, 51, 60, 0.55);
+    }
+
+    .chevron {
+      align-self: center;
+      flex-shrink: 0;
+      width: 34px;
+      height: 34px;
+      border: 1px solid var(--hairline);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: var(--lagoon);
+      transition: transform 0.4s ease, background 0.3s ease, color 0.3s ease;
+    }
+    .chevron svg { width: 12px; height: 12px; }
+    details[open] .chevron {
+      transform: rotate(180deg);
+      background: var(--lagoon);
+      color: var(--foam);
+      border-color: var(--lagoon);
+    }
+
+    .talk-body {
+      padding: 0 1.9rem 2rem;
+      margin-left: calc(2.2rem + 1.25rem);
+      border-top: 1px solid var(--hairline);
+      padding-top: 1.5rem;
+    }
+
+    .talk-body p {
+      font-size: 1.02rem;
+      color: rgba(16, 51, 60, 0.85);
+      margin-bottom: 1.1rem;
+    }
+
+    .talk-body p:last-of-type { margin-bottom: 1.4rem; }
+
+    .talk-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .talk-meta span {
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--sea-mid);
+      border: 1px solid rgba(17, 138, 178, 0.35);
+      border-radius: 999px;
+      padding: 0.32rem 0.9rem;
+      background: var(--foam);
+    }
+
+    @media (max-width: 560px) {
+      summary { padding: 1.4rem 1.2rem; gap: 0.9rem; }
+      .talk-no { min-width: 1.6rem; }
+      .talk-body { padding: 1.3rem 1.2rem 1.7rem; margin-left: 0; }
+    }
+
+    /* ---------- Footer ---------- */
+    footer {
+      position: relative;
+      margin-top: 5rem;
+      padding: 4.5rem 1.5rem 3rem;
+      text-align: center;
+      color: var(--foam);
+      background: linear-gradient(200deg, #0d6e86 0%, #073b4c 90%);
+      overflow: hidden;
+    }
+    footer::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% -30%, rgba(127, 227, 205, 0.10) 24%, transparent 25%);
+      background-size: 42px 36px;
+      pointer-events: none;
+    }
+    .footer-inner { position: relative; z-index: 1; }
+
+    footer .invite {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      font-size: 1.45rem;
+      max-width: 30ch;
+      margin: 0 auto 1.4rem;
+      line-height: 1.4;
+    }
+
+    footer .fin {
+      font-size: 0.72rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--turquoise-soft);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="hero-inner">
+      <p class="surtitle">Conférences · Talks · Lectures</p>
+      <h1>Les Conférences <em>de Karen</em></h1>
+      <div class="hero-rule"></div>
+      <p class="tagline">Stories of food, history &amp; culture — served with a certain je ne sais quoi.</p>
+    </div>
+    <div class="wave">
+      <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,40 C240,80 480,0 720,30 C960,60 1200,10 1440,45 L1440,70 L0,70 Z" fill="#fdfcf9" opacity="0.35"/>
+        <path d="M0,50 C240,90 480,15 720,42 C960,68 1200,25 1440,55 L1440,70 L0,70 Z" fill="#fdfcf9"/>
+      </svg>
+    </div>
+  </header>
+
+  <main>
+    <div class="section-label"><span>Le Répertoire</span></div>
+
+    <details>
+      <summary>
+        <span class="talk-no">I.</span>
+        <span class="talk-heading">
+          <span class="talk-title">Spanish Cuisine from North to South and the Islands</span>
+          <span class="talk-sub">Gastronomy · A voyage in flavours</span>
+        </span>
+        <span class="chevron" aria-hidden="true">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4 L6 8 L10 4"/></svg>
+        </span>
+      </summary>
+      <div class="talk-body">
+        <p>A leisurely journey down the Iberian table — from the pintxos bars of San Sebastián and the cider houses of Asturias, through the saffron fields of La Mancha, to the fried fish of Andalusia and the island kitchens of the Balearics and Canaries.</p>
+        <p>Along the way: why paella is a fighting word in Valencia, what the Moors left behind in the pantry, and how geography wrote Spain's menu long before its chefs did.</p>
+        <div class="talk-meta">
+          <span>≈ 45 minutes</span>
+          <span>With tastings on request</span>
+          <span>Illustrated</span>
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary>
+        <span class="talk-no">II.</span>
+        <span class="talk-heading">
+          <span class="talk-title">Pesto de Pasta: the History and Stories of Italian Cuisine</span>
+          <span class="talk-sub">Gastronomy · La dolce vita, one plate at a time</span>
+        </span>
+        <span class="chevron" aria-hidden="true">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4 L6 8 L10 4"/></svg>
+        </span>
+      </summary>
+      <div class="talk-body">
+        <p>Italy is less one cuisine than twenty regional love affairs. This talk winds from the basil terraces of Liguria to the ragù pots of Bologna and the lemon groves of the Amalfi coast, tracing how pasta conquered a peninsula — and then the world.</p>
+        <p>Expect nonna wisdom, a little opera, the truth about carbonara, and the story of how a humble Genoese sauce became a global obsession.</p>
+        <div class="talk-meta">
+          <span>≈ 45 minutes</span>
+          <span>With tastings on request</span>
+          <span>Illustrated</span>
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary>
+        <span class="talk-no">III.</span>
+        <span class="talk-heading">
+          <span class="talk-title">The History of Norway from Mythology to Present Day</span>
+          <span class="talk-sub">History · Fjords, gods &amp; modernity</span>
+        </span>
+        <span class="chevron" aria-hidden="true">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4 L6 8 L10 4"/></svg>
+        </span>
+      </summary>
+      <div class="talk-body">
+        <p>From Odin and the world-tree to oil rigs and the world's happiest commuters — a sweeping tale of a nation carved by ice and sea. We sail with the Vikings, weather plague and union, and watch a poor fishing nation become one of the wealthiest countries on earth.</p>
+        <p>Featuring trolls, stave churches, polar explorers with questionable planning, and the quiet drama of Norwegian independence.</p>
+        <div class="talk-meta">
+          <span>≈ 60 minutes</span>
+          <span>Illustrated</span>
+          <span>Suitable for all audiences</span>
+        </div>
+      </div>
+    </details>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <p class="invite">Each talk can be tailored to your audience, venue and occasion — do get in touch.</p>
+      <p class="fin">— Fin —</p>
+    </div>
+  </footer>
+
+  <script>
+    // Close other talks when one opens, accordion-style.
+    document.querySelectorAll('details').forEach((d) => {
+      d.addEventListener('toggle', () => {
+        if (d.open) {
+          document.querySelectorAll('details[open]').forEach((other) => {
+            if (other !== d) other.open = false;
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -4,7 +4,7 @@ A small static site listing talks Karen has written and can give. Each talk titl
 
 ## Live site
 
-https://xylophonehero.github.io/karen-talks/
+https://karenworrall.github.io/talks/
 
 ## How it works
 

@@ -3,8 +3,8 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - claude/talks-portfolio-site-grxb6f
       - main
+      - claude/talks-portfolio-site-grxb6f
   workflow_dispatch:
 
 permissions:

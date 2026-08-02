@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Les Conférences de Karen — Talks &amp; Lectures</title>
-  <meta name="description" content="A curated répertoire of talks and lectures by Karen — cuisine, history and culture, told with a certain je ne sais quoi.">
+  <title>Karen Worrall: Example Destination Enrichment Presentations</title>
+  <meta name="description" content="Example destination enrichment presentations by Karen Worrall: history, culture, customs and cuisine, the arts, mythology and ancient civilisations, grouped by itinerary.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
@@ -46,7 +46,6 @@
       overflow: hidden;
     }
 
-    /* mermaid scales, drawn in pure CSS */
     header::before {
       content: "";
       position: absolute;
@@ -69,14 +68,15 @@
       pointer-events: none;
     }
 
-    .hero-inner { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; }
+    .hero-inner { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; }
 
     .surtitle {
-      font-size: 0.78rem;
-      letter-spacing: 0.42em;
+      font-size: 0.72rem;
+      letter-spacing: 0.26em;
       text-transform: uppercase;
       color: var(--turquoise-soft);
       margin-bottom: 1.6rem;
+      line-height: 1.9;
     }
 
     h1 {
@@ -87,9 +87,13 @@
       letter-spacing: 0.01em;
     }
 
-    h1 em {
+    .hero-subtitle {
+      font-family: 'Cormorant Garamond', Georgia, serif;
       font-style: italic;
+      font-size: clamp(1.2rem, 2.6vw, 1.7rem);
+      line-height: 1.3;
       color: var(--turquoise-soft);
+      margin-top: 0.9rem;
     }
 
     .hero-rule {
@@ -104,6 +108,8 @@
       font-style: italic;
       font-size: 1.25rem;
       color: rgba(243, 251, 249, 0.85);
+      max-width: 46ch;
+      margin: 0 auto;
     }
 
     /* wave divider */
@@ -123,15 +129,16 @@
       padding: 4.5rem 1.5rem 2rem;
     }
 
+    /* major section heading */
     .section-label {
       display: flex;
       align-items: center;
       gap: 1.2rem;
-      margin-bottom: 3rem;
+      margin-bottom: 2.6rem;
     }
     .section-label span {
       font-size: 0.74rem;
-      letter-spacing: 0.38em;
+      letter-spacing: 0.3em;
       text-transform: uppercase;
       color: var(--sea-mid);
       white-space: nowrap;
@@ -144,12 +151,52 @@
       flex: 1;
     }
 
+    details + .section-label,
+    .prose + .section-label { margin-top: 4.5rem; }
+
+    /* standing note that applies to every event on the page */
+    .note {
+      text-align: center;
+      font-size: 0.92rem;
+      color: rgba(16, 51, 60, 0.72);
+      max-width: 46ch;
+      margin: 0 auto 3.4rem;
+      line-height: 1.6;
+    }
+    .note strong {
+      font-weight: 500;
+      color: var(--sea-mid);
+    }
+
+    /* itinerary sub-heading */
+    .group-label {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      margin-bottom: 1.4rem;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .group-label::after {
+      content: "";
+      height: 1px;
+      background: rgba(200, 162, 75, 0.4);
+      flex: 1;
+    }
+
+    details + .group-label { margin-top: 3.2rem; }
+    .section-label + .group-label { margin-top: 0; }
+
     /* ---------- Talk cards ---------- */
     details {
       background: #fff;
       border: 1px solid var(--hairline);
       border-radius: 2px;
-      margin-bottom: 1.4rem;
+      margin-bottom: 1.1rem;
       box-shadow: 0 1px 0 rgba(7, 59, 76, 0.03);
       transition: box-shadow 0.35s ease, border-color 0.35s ease;
     }
@@ -168,19 +215,11 @@
       list-style: none;
       cursor: pointer;
       display: flex;
-      align-items: baseline;
+      align-items: center;
       gap: 1.25rem;
-      padding: 1.7rem 1.9rem;
+      padding: 1.45rem 1.7rem;
     }
     summary::-webkit-details-marker { display: none; }
-
-    .talk-no {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-style: italic;
-      font-size: 1rem;
-      color: var(--gold);
-      min-width: 2.2rem;
-    }
 
     .talk-heading { flex: 1; display: block; }
 
@@ -188,7 +227,7 @@
       display: block;
       font-family: 'Cormorant Garamond', Georgia, serif;
       font-weight: 600;
-      font-size: clamp(1.35rem, 3vw, 1.65rem);
+      font-size: clamp(1.25rem, 3vw, 1.5rem);
       line-height: 1.25;
       color: var(--sea-deep);
       transition: color 0.3s ease;
@@ -225,19 +264,18 @@
     }
 
     .talk-body {
-      padding: 0 1.9rem 2rem;
-      margin-left: calc(2.2rem + 1.25rem);
+      padding: 1.4rem 1.7rem 1.8rem;
       border-top: 1px solid var(--hairline);
-      padding-top: 1.5rem;
     }
 
     .talk-body p {
-      font-size: 1.02rem;
+      font-size: 1rem;
       color: rgba(16, 51, 60, 0.85);
       margin-bottom: 1.1rem;
     }
 
-    .talk-body p:last-of-type { margin-bottom: 1.4rem; }
+    .talk-body p:last-of-type { margin-bottom: 0; }
+    .talk-body p:last-of-type + .talk-meta { margin-top: 1.3rem; }
 
     .talk-meta {
       display: flex;
@@ -256,10 +294,24 @@
       background: var(--foam);
     }
 
+    /* standalone prose panel (port enrichment talks) */
+    .prose {
+      background: #fff;
+      border: 1px solid var(--hairline);
+      border-radius: 2px;
+      padding: 1.9rem;
+      box-shadow: 0 1px 0 rgba(7, 59, 76, 0.03);
+    }
+    .prose p {
+      font-size: 1rem;
+      color: rgba(16, 51, 60, 0.85);
+    }
+    .prose p + p { margin-top: 1.1rem; }
+
     @media (max-width: 560px) {
-      summary { padding: 1.4rem 1.2rem; gap: 0.9rem; }
-      .talk-no { min-width: 1.6rem; }
-      .talk-body { padding: 1.3rem 1.2rem 1.7rem; margin-left: 0; }
+      summary { padding: 1.25rem 1.15rem; gap: 0.9rem; }
+      .talk-body { padding: 1.2rem 1.15rem 1.5rem; }
+      .prose { padding: 1.4rem 1.15rem; }
     }
 
     /* ---------- Footer ---------- */
@@ -286,14 +338,14 @@
       font-family: 'Cormorant Garamond', Georgia, serif;
       font-style: italic;
       font-size: 1.45rem;
-      max-width: 30ch;
+      max-width: 34ch;
       margin: 0 auto 1.4rem;
       line-height: 1.4;
     }
 
     footer .fin {
       font-size: 0.72rem;
-      letter-spacing: 0.4em;
+      letter-spacing: 0.32em;
       text-transform: uppercase;
       color: var(--turquoise-soft);
     }
@@ -303,10 +355,11 @@
 
   <header>
     <div class="hero-inner">
-      <p class="surtitle">Conférences · Talks · Lectures</p>
-      <h1>Les Conférences <em>de Karen</em></h1>
+      <p class="surtitle">Presentations · Port Talks · Sailing Commentaries · Language Classes · Social Events</p>
+      <h1>Karen Worrall</h1>
+      <p class="hero-subtitle">Example Destination Enrichment Presentations</p>
       <div class="hero-rule"></div>
-      <p class="tagline">Stories of food, history &amp; culture — served with a certain je ne sais quoi.</p>
+      <p class="tagline">Helping you connect with cruise destinations: history, culture, customs and cuisine, the arts, mythology and ancient civilisations.</p>
     </div>
     <div class="wave">
       <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
@@ -317,79 +370,781 @@
   </header>
 
   <main>
-    <div class="section-label"><span>Le Répertoire</span></div>
+
+    <p class="note"><strong>All events run 45–60 minutes</strong> and can be tailored to run longer or shorter to suit your programme.</p>
+
+    <!-- ============================================================
+         EXAMPLE TALK TITLES, grouped by itinerary region.
+         To add a talk, copy the template at the bottom of this file.
+         ============================================================ -->
+    <div class="section-label"><span>Example Talk Titles</span></div>
+
+
+    <!-- ---------- BRITISH ISLES & NORTHERN EUROPE ---------- -->
+    <div class="group-label">British Isles &amp; Northern Europe</div>
 
     <details>
       <summary>
-        <span class="talk-no">I.</span>
         <span class="talk-heading">
-          <span class="talk-title">Spanish Cuisine from North to South and the Islands</span>
-          <span class="talk-sub">Gastronomy · A voyage in flavours</span>
+          <span class="talk-title">Edinburgh’s Royal Mile: A Tour Around Its History and Stories</span>
         </span>
         <span class="chevron" aria-hidden="true">
           <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4 L6 8 L10 4"/></svg>
         </span>
       </summary>
       <div class="talk-body">
-        <p>A leisurely journey down the Iberian table — from the pintxos bars of San Sebastián and the cider houses of Asturias, through the saffron fields of La Mancha, to the fried fish of Andalusia and the island kitchens of the Balearics and Canaries.</p>
-        <p>Along the way: why paella is a fighting word in Valencia, what the Moors left behind in the pantry, and how geography wrote Spain's menu long before its chefs did.</p>
-        <div class="talk-meta">
-          <span>≈ 45 minutes</span>
-          <span>With tastings on request</span>
-          <span>Illustrated</span>
-        </div>
+        <p>Edinburgh is Scotland’s elegant capital city, full of history and stories. The Royal Mile, which runs from Edinburgh Castle to Holyrood Palace, is its heart. In this conversation, Karen Worrall, former Edinburgh tour guide, takes you on a walk via images through the Royal Mile, sharing accounts of the Old Town’s intriguing past.</p>
       </div>
     </details>
 
     <details>
       <summary>
-        <span class="talk-no">II.</span>
         <span class="talk-heading">
-          <span class="talk-title">Pesto de Pasta: the History and Stories of Italian Cuisine</span>
-          <span class="talk-sub">Gastronomy · La dolce vita, one plate at a time</span>
+          <span class="talk-title">From Bangers to Bannocks: The Story of British Cuisine</span>
         </span>
         <span class="chevron" aria-hidden="true">
           <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4 L6 8 L10 4"/></svg>
         </span>
       </summary>
       <div class="talk-body">
-        <p>Italy is less one cuisine than twenty regional love affairs. This talk winds from the basil terraces of Liguria to the ragù pots of Bologna and the lemon groves of the Amalfi coast, tracing how pasta conquered a peninsula — and then the world.</p>
-        <p>Expect nonna wisdom, a little opera, the truth about carbonara, and the story of how a humble Genoese sauce became a global obsession.</p>
-        <div class="talk-meta">
-          <span>≈ 45 minutes</span>
-          <span>With tastings on request</span>
-          <span>Illustrated</span>
-        </div>
+        <p>From hearty pies to delicate shortbread, Britain’s cuisine is steeped in history and shaped by story. Join Karen Worrall as she explores the flavours of England, Scotland and Ireland, dishes both beloved and surprising. Discover the cultural roots, curious legends, and quirky traditions behind some of the Isles’ most iconic meals in this warm and flavourful conversation that proves British food is far more than just meat and potatoes.</p>
       </div>
     </details>
 
     <details>
       <summary>
-        <span class="talk-no">III.</span>
         <span class="talk-heading">
-          <span class="talk-title">The History of Norway from Mythology to Present Day</span>
-          <span class="talk-sub">History · Fjords, gods &amp; modernity</span>
+          <span class="talk-title">Myths and Legends of Scotland: From Nessie to the Nuckelavee</span>
         </span>
         <span class="chevron" aria-hidden="true">
           <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4 L6 8 L10 4"/></svg>
         </span>
       </summary>
       <div class="talk-body">
-        <p>From Odin and the world-tree to oil rigs and the world's happiest commuters — a sweeping tale of a nation carved by ice and sea. We sail with the Vikings, weather plague and union, and watch a poor fishing nation become one of the wealthiest countries on earth.</p>
-        <p>Featuring trolls, stave churches, polar explorers with questionable planning, and the quiet drama of Norwegian independence.</p>
+        <p>Scotland is an old country, full of history, mystery, superstition and more than its share of myths and legends. In this conversation, Karen Worrall looks at some of the enduring lore and legends, from the eponymous Loch Ness monster to some of the folklore that is lesser known outside Scotland.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>
+        <span class="talk-heading">
+          <span class="talk-title">From Ceilidhs to Caledonia: An Introduction to Scottish Folk Culture</span>
+        </span>
+        <span class="chevron" aria-hidden="true">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4 L6 8 L10 4"/></svg>
+        </span>
+      </summary>
+      <div class="talk-body">
+        <p>Join travel writer Karen Worrall for a spirited journey through Scotland’s cultural heart. From the swirling kilts of ceilidh dancers and the haunting sound of the bagpipes to Hogmanay celebrations, delve into the stories, customs, and traditions that shape Scottish identity. Discover the festivals and enduring pride that make Scotland a land of legend and lively community spirit.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>
+        <span class="talk-heading">
+          <span class="talk-title">Sips &amp; Giggles: Humour &amp; Habits of the UK</span>
+        </span>
+        <span class="chevron" aria-hidden="true">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4 L6 8 L10 4"/></svg>
+        </span>
+      </summary>
+      <div class="talk-body">
+        <p>From dry wit to quirky customs, the United Kingdom is full of surprises. Join Karen Worrall for a lively and light-hearted look at life across England, Scotland, Wales, and Northern Ireland. Explore the British sense of humour, beloved pastimes, and pop culture touchstones, alongside lesser-known traditions and attitudes that shape daily life. A fun, insightful introduction to the charm, cheek, and character of this wonderfully complex nation.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>
+        <span class="talk-heading">
+          <span class="talk-title">Iceland Uncovered: Legends, Landscapes &amp; Local Flavours</span>
+        </span>
+        <span class="chevron" aria-hidden="true">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4 L6 8 L10 4"/></svg>
+        </span>
+      </summary>
+      <div class="talk-body">
+        <p>The land of fire and ice, Iceland is rich in ancient sagas, striking landscapes, and a deep-rooted cultural pride. Join Karen Worrall as she introduces the island’s fascinating history, unique customs, and traditional cuisine, some of which may surprise even the most adventurous palate. From Reykjavík’s cosmopolitan charm to the country’s folklore and food, this is a journey through Iceland’s bold spirit and quietly powerful beauty.</p>
+      </div>
+    </details>
+
+
+    <!-- ---------- WESTERN MEDITERRANEAN (France, Spain, Italy) ---------- -->
+    <div class="group-label">Western Mediterranean</div>
+
+    <details>
+      <summary>
+        <span class="talk-heading">
+          <span class="talk-title">From Bistros to Bouillabaisse: The Rich Tapestry of French Cuisine</span>
+        </span>
+        <span class="chevron" aria-hidden="true">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4 L6 8 L10 4"/></svg>
+        </span>
+      </summary>
+      <div class="talk-body">
+        <p>Join Karen Worrall to explore the artistry and origins of French cuisine in this culinary adventure, from the creamy delights of Normandy to the bold Mediterranean flavours of the Côte d’Azur. Discover the cultural impact of both peasant traditions and royal kitchens on France’s exquisite food heritage.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>
+        <span class="talk-heading">
+          <span class="talk-title">Be More French</span>
+        </span>
+        <span class="chevron" aria-hidden="true">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4 L6 8 L10 4"/></svg>
+        </span>
+      </summary>
+      <div class="talk-body">
+        <p>From couture and cuisine to customs and culture, discover what it means to live à la française. With Francophile Karen Worrall, explore how style, simplicity, and a passion for pleasure define the French art of living.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>
+        <span class="talk-heading">
+          <span class="talk-title">Beautiful Balearics: Cathedrals, Coves &amp; Culture</span>
+        </span>
+        <span class="chevron" aria-hidden="true">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4 L6 8 L10 4"/></svg>
+        </span>
+      </summary>
+      <div class="talk-body">
+        <p>Join Karen Worrall for a journey into the history, culture, and customs of Spain’s sun-drenched Balearic islands. Discover Mallorca’s soaring cathedral and hidden coves, Menorca’s charming port town of Mahón and timeless traditions, and Ibiza’s iconic fortress, festivals, and free spirit.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>
+        <span class="talk-heading">
+          <span class="talk-title">Pintxos to Paella: Exploring Spain’s Regional Specialities from North to South</span>
+        </span>
+        <span class="chevron" aria-hidden="true">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4 L6 8 L10 4"/></svg>
+        </span>
+      </summary>
+      <div class="talk-body">
+        <p>Join Karen Worrall on a culinary tour of Spain, from Galicia’s seafood to Andalusia’s tapas and Valencia’s paellas. Discover the stories behind beloved recipes and desserts, and how each region’s history and culture shape its flavours. A perfect journey for food lovers to savour Spain’s rich gastronomic heritage.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>
+        <span class="talk-heading">
+          <span class="talk-title">Gaudí’s Barcelona: Spires, Stone &amp; Spectacle</span>
+        </span>
+        <span class="chevron" aria-hidden="true">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4 L6 8 L10 4"/></svg>
+        </span>
+      </summary>
+      <div class="talk-body">
+        <p>Join Karen Worrall to uncover Barcelona’s brilliance, from Gaudí’s fantastical Sagrada Família and whimsical Park Güell to the Gothic Quarter’s medieval maze. Explore the city’s irresistible blend of architecture and history, and see why Barcelona beguiles travellers with its creativity and culture.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>
+        <span class="talk-heading">
+          <span class="talk-title">Spain and Cartagena Uncovered: A Tapestry of History, Culture and Wonders</span>
+        </span>
+        <span class="chevron" aria-hidden="true">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4 L6 8 L10 4"/></svg>
+        </span>
+      </summary>
+      <div class="talk-body">
+        <p>Join Karen Worrall for a fascinating journey through Spain’s diverse heritage and the historic port city of Cartagena. Learn about the rich tapestry of cultures that have shaped the region, from ancient Rome to modern influences. Explore the architectural marvels and vibrant traditions that make Cartagena unique.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>
+        <span class="talk-heading">
+          <span class="talk-title">Gibraltar Unveiled: A Gateway to History, Culture and Scenic Splendours</span>
+        </span>
+        <span class="chevron" aria-hidden="true">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4 L6 8 L10 4"/></svg>
+        </span>
+      </summary>
+      <div class="talk-body">
+        <p>Join Karen Worrall to discover the unique blend of British and Spanish influences that shape Gibraltar’s vibrant culture, uncover the fascinating layers of its rich history, and take in the stunning natural beauty that defines the Rock, from ancient fortifications to the bustling city life and the famous Barbary macaque.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>
+        <span class="talk-heading">
+          <span class="talk-title">Pesto to Pizza: Exploring Italy’s Regional Specialities from North to South</span>
+        </span>
+        <span class="chevron" aria-hidden="true">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4 L6 8 L10 4"/></svg>
+        </span>
+      </summary>
+      <div class="talk-body">
+        <p>Join Karen Worrall for a culinary journey through Italy’s diverse regions. From the rich, creamy dishes of the north to the rustic flavours of central Italy and the vibrant tastes of the south, discover the history and stories behind beloved dishes, including delectable desserts. Perfect for food enthusiasts eager to explore Italy’s gastronomic heritage.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>
+        <span class="talk-heading">
+          <span class="talk-title">The Soul of Southern Italy: The Bay of Naples to the Amalfi Coast</span>
+        </span>
+        <span class="chevron" aria-hidden="true">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4 L6 8 L10 4"/></svg>
+        </span>
+      </summary>
+      <div class="talk-body">
+        <p>Why did Goethe say, “See Naples and die”? Join travel writer and former Naples resident Karen Worrall for a curated journey through Southern Italy’s soul, from ancient Pompeii to vibrant Naples and the islands of Capri, Ischia and Procida, uncovering its rich history, culture, and hidden gems.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>
+        <span class="talk-heading">
+          <span class="talk-title">Living La Vita Napoletana: What Italy Taught Me About Life, Love and Limoncello</span>
+        </span>
+        <span class="chevron" aria-hidden="true">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4 L6 8 L10 4"/></svg>
+        </span>
+      </summary>
+      <div class="talk-body">
+        <p>Step beyond the guidebooks into everyday Italy with former resident Karen Worrall. In this lively talk, she shares personal stories of expat life: cultural surprises, colourful characters, and humorous misadventures, offering insight into the mindset, customs, and spirit that define the soul of Southern Italy.</p>
         <div class="talk-meta">
-          <span>≈ 60 minutes</span>
-          <span>Illustrated</span>
-          <span>Suitable for all audiences</span>
+          <span>Informal talk</span>
         </div>
       </div>
     </details>
+
+
+    <!-- ---------- ADRIATIC & EASTERN MEDITERRANEAN ---------- -->
+    <div class="group-label">Adriatic &amp; Eastern Mediterranean</div>
+
+    <details>
+      <summary>
+        <span class="talk-heading">
+          <span class="talk-title">Croatia: Layers of History, Culture and the Adriatic Spirit</span>
+        </span>
+        <span class="chevron" aria-hidden="true">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4 L6 8 L10 4"/></svg>
+        </span>
+      </summary>
+      <div class="talk-body">
+        <p>From Roman foundations to Venetian influence, Ottoman frontiers and elegant Austro-Hungarian resorts, Croatia reveals a rich and complex past. Discover its culture, cuisine and identity today, and explore why this small Adriatic country leaves such a lasting impression.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>
+        <span class="talk-heading">
+          <span class="talk-title">Slovenia: Where Alps, Legends and the Adriatic Meet</span>
+        </span>
+        <span class="chevron" aria-hidden="true">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4 L6 8 L10 4"/></svg>
+        </span>
+      </summary>
+      <div class="talk-body">
+        <p>Discover Slovenia, one of Europe’s greenest and most fascinating hidden gems, where Alpine peaks, Adriatic coastlines, forests, caves and medieval towns meet. Explore the country’s history, legends, cuisine, wildlife and culture, and uncover how nature and history continue shaping modern Slovenian life today.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>
+        <span class="talk-heading">
+          <span class="talk-title">Athens: Landmarks, Legends &amp; the Cradle of Democracy</span>
+        </span>
+        <span class="chevron" aria-hidden="true">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4 L6 8 L10 4"/></svg>
+        </span>
+      </summary>
+      <div class="talk-body">
+        <p>Step into the living museum that is Athens, cradle of democracy and gateway to Western civilisation. In this enriching talk, long-time visitor Karen Worrall introduces the city’s most iconic sites, from the Acropolis and Ancient Agora, Plaka’s neoclassical charm to nearby Piraeus and Cape Sounion. Learn the stories and significance behind the monuments, temples, and historic districts that make Athens one of the world’s most compelling and enduring capitals.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>
+        <span class="talk-heading">
+          <span class="talk-title">Santorini: Myths, Marvels &amp; Mediterranean Magic</span>
+        </span>
+        <span class="chevron" aria-hidden="true">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4 L6 8 L10 4"/></svg>
+        </span>
+      </summary>
+      <div class="talk-body">
+        <p>One of Greece’s most iconic islands, Santorini offers more than stunning views. In this enriching talk, Karen Worrall explores the history, mythology, and highlights of this beloved Aegean gem. Discover ancient sites, whitewashed villages, blue-domed chapels, and the cultural significance behind the landscapes. From Oia to Fira, uncover what makes this island an enduring symbol of Greek identity and timeless allure.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>
+        <span class="talk-heading">
+          <span class="talk-title">Kuşadası &amp; Ephesus: Ruins, Revelations &amp; the Rise of a Roman City</span>
+        </span>
+        <span class="chevron" aria-hidden="true">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4 L6 8 L10 4"/></svg>
+        </span>
+      </summary>
+      <div class="talk-body">
+        <p>Step ashore into the storied past of Türkiye’s Aegean coast. In this enriching talk, Karen Worrall explores Kuşadası’s coastal charm and the nearby ancient city of Ephesus, one of the best-preserved classical cities in the world. From the Library of Celsus to the Grand Theatre and the legendary Temple of Artemis, discover the historical highlights and cultural legacy of a region that shaped the ancient Mediterranean world. Plus learn a few basic words and phrases in Turkish.</p>
+      </div>
+    </details>
+
+
+    <!-- ---------- ATLANTIC ISLANDS & NORTH AFRICA ---------- -->
+    <div class="group-label">Atlantic Islands &amp; North Africa</div>
+
+    <details>
+      <summary>
+        <span class="talk-heading">
+          <span class="talk-title">Coastal Treasures: Morocco’s Historic Coastal Cities</span>
+        </span>
+        <span class="chevron" aria-hidden="true">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4 L6 8 L10 4"/></svg>
+        </span>
+      </summary>
+      <div class="talk-body">
+        <p>Step into the history and beauty of Morocco’s coastal gems with Karen Worrall. Explore key cities like Tangier and Casablanca, uncover Morocco’s ancient past, and learn fascinating facts that highlight this country’s strategic and cultural significance, offering a captivating glimpse into its coastal wonders.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>
+        <span class="talk-heading">
+          <span class="talk-title">Marvellous Morocco: Cuisine, Customs and Culture</span>
+        </span>
+        <span class="chevron" aria-hidden="true">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4 L6 8 L10 4"/></svg>
+        </span>
+      </summary>
+      <div class="talk-body">
+        <p>Join Karen Worrall for an engaging exploration of Morocco’s vibrant culinary traditions, fascinating customs, and unique cultural differences. Discover the secrets of Moroccan hospitality, learn a little basic Arabic, and get a taste of the flavours and etiquette that make Morocco’s food and social rituals so memorable. Perfect for anyone eager to understand Moroccan life from the inside out.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>
+        <span class="talk-heading">
+          <span class="talk-title">Discovering the Canary Islands: A Journey Through History, Culture and Natural Wonders</span>
+        </span>
+        <span class="chevron" aria-hidden="true">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4 L6 8 L10 4"/></svg>
+        </span>
+      </summary>
+      <div class="talk-body">
+        <p>Join Karen Worrall to dive into the rich history of the islands, vibrant culture, and breathtaking landscapes. From the native Guanche people and European colonisation to contemporary customs and fascinating landscapes, learn what makes this archipelago a unique gem in the Atlantic.</p>
+      </div>
+    </details>
+
+
+    <!-- ---------- CENTRAL & SOUTH AMERICA ---------- -->
+    <div class="group-label">Central &amp; South America</div>
+
+    <details>
+      <summary>
+        <span class="talk-heading">
+          <span class="talk-title">Rivalry and Resolution: How Spain and Portugal Divided South America</span>
+        </span>
+        <span class="chevron" aria-hidden="true">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4 L6 8 L10 4"/></svg>
+        </span>
+      </summary>
+      <div class="talk-body">
+        <p>Discover how a single treaty shaped South America. Join former Spanish resident and Latinophile Karen Worrall to explore the 1494 Treaty of Tordesillas, the bold line that split the New World between Spain and Portugal, defining languages, borders, and cultures that still shape the continent today.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>
+        <span class="talk-heading">
+          <span class="talk-title">Peru: Empire of the Andes</span>
+        </span>
+        <span class="chevron" aria-hidden="true">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4 L6 8 L10 4"/></svg>
+        </span>
+      </summary>
+      <div class="talk-body">
+        <p>High in the Andes, where cloud forests meet ancient stone cities, Peru’s past is never far from the present. Karen Worrall explores Inca civilisation, Spanish colonial legacy, and living traditions that continue to shape daily life in this remarkable Andean nation.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>
+        <span class="talk-heading">
+          <span class="talk-title">Chile: A Land Between Mountains and Sea</span>
+        </span>
+        <span class="chevron" aria-hidden="true">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4 L6 8 L10 4"/></svg>
+        </span>
+      </summary>
+      <div class="talk-body">
+        <p>Stretching from the Atacama Desert to icy fjords, Chile is a land of extremes, and of extraordinary stories. Karen Worrall uncovers its complex history, from indigenous roots to European influences, and explores traditions shaped by the Andes and Pacific. Learn about Chilean customs, music, and festivals to uncover the soul of Chile.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>
+        <span class="talk-heading">
+          <span class="talk-title">Argentina: From Tango to Tierra del Fuego</span>
+        </span>
+        <span class="chevron" aria-hidden="true">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4 L6 8 L10 4"/></svg>
+        </span>
+      </summary>
+      <div class="talk-body">
+        <p>Argentina is a land of striking contrasts: passionate, proud, and full of flavour. Join Karen Worrall to journey through its rich history and vibrant culture, from the sultry streets of Buenos Aires to the windswept charm of Ushuaia, the world’s southernmost city. Explore gaucho traditions, dramatic landscapes, mate rituals, and mouthwatering cuisine, from empanadas and Malbec to the famed Argentine asado.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>
+        <span class="talk-heading">
+          <span class="talk-title">Life on the Edge: The Falkland Islands (Islas Malvinas) Uncovered</span>
+        </span>
+        <span class="chevron" aria-hidden="true">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4 L6 8 L10 4"/></svg>
+        </span>
+      </summary>
+      <div class="talk-body">
+        <p>Tucked away in the South Atlantic, the Falkland Islands (Islas Malvinas) are rich in history and remote character. Join Karen Worrall to explore British heritage, contested history, resilient communities, and a distinctive way of life shaped by isolation, climate, and choice, revealing the human story behind this windswept archipelago.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>
+        <span class="talk-heading">
+          <span class="talk-title">The Panama Canal: Gateway Between Oceans</span>
+        </span>
+        <span class="chevron" aria-hidden="true">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4 L6 8 L10 4"/></svg>
+        </span>
+      </summary>
+      <div class="talk-body">
+        <p>The Panama Canal is one of the greatest engineering feats in human history, a marvel that reshaped global trade and travel. Join Karen Worrall to trace its dramatic story, from bold French beginnings and deadly setbacks to American completion and Panamanian control. Discover the political intrigue, human cost, and ingenious design behind the waterway that links the Atlantic to the Pacific, and the world.</p>
+      </div>
+    </details>
+
+
+    <!-- ---------- ASIA ---------- -->
+    <div class="group-label">Asia</div>
+
+    <details>
+      <summary>
+        <span class="talk-heading">
+          <span class="talk-title">Sun, Sovereignty, and Succession: Inside Japan’s Imperial House</span>
+        </span>
+        <span class="chevron" aria-hidden="true">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4 L6 8 L10 4"/></svg>
+        </span>
+      </summary>
+      <div class="talk-body">
+        <p>From divine myth and sacred regalia to shoguns, emperors, and modern constitutional monarchy, Karen Worrall traces Japan’s Imperial House across millennia, exploring power, gender, ritual, war, and today’s succession debate in the world’s oldest continuous monarchy.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>
+        <span class="talk-heading">
+          <span class="talk-title">From Rice to Ramen: The Remarkable Rise of Japanese Cuisine</span>
+        </span>
+        <span class="chevron" aria-hidden="true">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4 L6 8 L10 4"/></svg>
+        </span>
+      </summary>
+      <div class="talk-body">
+        <p>Join Karen Worrall to discover how geography, Buddhism, China, Portugal, and the modern West shaped Japan’s extraordinary food culture. From ancient rice and fish to sushi, ramen, tempura, and miso, this talk reveals the principles, flavours, and history behind one of the world’s most refined cuisines.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>
+        <span class="talk-heading">
+          <span class="talk-title">The Story of Silk: How One Fabric Connected China, Korea, Japan, and the World</span>
+        </span>
+        <span class="chevron" aria-hidden="true">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4 L6 8 L10 4"/></svg>
+        </span>
+      </summary>
+      <div class="talk-body">
+        <p>Join Karen Worrall for an elegant journey through the 6,000-year story of silk. From the courts of Imperial China to Korea, Japan, and distant markets, discover how this prized fabric reshaped global trade and left an enduring cultural legacy.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>
+        <span class="talk-heading">
+          <span class="talk-title">The Asian Leaf That Changed the World: The Global Story of Tea</span>
+        </span>
+        <span class="chevron" aria-hidden="true">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4 L6 8 L10 4"/></svg>
+        </span>
+      </summary>
+      <div class="talk-body">
+        <p>Born in China and carried across Japan, Korea, and Southeast Asia to around the world, tea transformed cultures, commerce, and ceremony. Join Karen Worrall for a fascinating exploration of the drink that links the destinations on our voyage and remains central to life throughout Asia.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>
+        <span class="talk-heading">
+          <span class="talk-title">Fragrant Flavours &amp; Food Traditions: A Taste of Southeast Asia</span>
+        </span>
+        <span class="chevron" aria-hidden="true">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4 L6 8 L10 4"/></svg>
+        </span>
+      </summary>
+      <div class="talk-body">
+        <p>Join Karen Worrall to explore the extraordinary diversity of Southeast Asian cuisine, from Thailand’s bold contrasts to Vietnam’s freshness and Hong Kong’s culinary finesse, and discover how history, trade, and tradition shaped these unforgettable cuisines, revealing why every dish tells a deeper cultural story.</p>
+      </div>
+    </details>
+
+
+    <!-- ---------- TRAVEL & LIFE AT SEA (suits any itinerary) ---------- -->
+    <div class="group-label">Travel &amp; Life at Sea</div>
+
+    <details>
+      <summary>
+        <span class="talk-heading">
+          <span class="talk-title">How to Have Meaningful Travel on a Cruise</span>
+        </span>
+        <span class="chevron" aria-hidden="true">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4 L6 8 L10 4"/></svg>
+        </span>
+      </summary>
+      <div class="talk-body">
+        <p>After being in the cruise industry since 2005, Karen Worrall explored whether authentic travel is possible by cruise for her MBA dissertation. Join her to discover the results, stories, quotes, and tips on how to make your cruise experiences more meaningful, memorable, and truly authentic.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>
+        <span class="talk-heading">
+          <span class="talk-title">Traveller’s Tales: Savour and Share Stories</span>
+        </span>
+        <span class="chevron" aria-hidden="true">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4 L6 8 L10 4"/></svg>
+        </span>
+      </summary>
+      <div class="talk-body">
+        <p>Join travel writer and speaker Karen Worrall for a special storytelling event exploring authentic travel experiences. A new event linked to her presentation and research on authentic travel by cruise, Karen shares some of her most authentic and meaningful travel stories from her 20 years at sea, including reading previously unheard passages from her upcoming book on this topic. She then invites you to share your own memorable moments from this cruise or past travels, if you wish. A wonderful way to connect, reminisce, and celebrate the joy of travel.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>
+        <span class="talk-heading">
+          <span class="talk-title">Trust the Adventure: 25 Years in Travel</span>
+        </span>
+        <span class="chevron" aria-hidden="true">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4 L6 8 L10 4"/></svg>
+        </span>
+      </summary>
+      <div class="talk-body">
+        <p>From expat life to 20 years on cruise ships, Karen shares what a life of long-term travel truly teaches. Through humour and heart, she offers thoughtful lessons and take-away wisdom to inspire you to trust your own adventures.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>
+        <span class="talk-heading">
+          <span class="talk-title">Tales of Whales: Our Relationship with the Sea’s Gentle Giants over the Centuries</span>
+        </span>
+        <span class="chevron" aria-hidden="true">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4 L6 8 L10 4"/></svg>
+        </span>
+      </summary>
+      <div class="talk-body">
+        <p>Whales have been linked with humans for centuries. They have featured in stories and parables, vilified, used as food, and fuel. Join Karen Worrall to explore how we have interacted with these creatures over the years, how our relationships have evolved, and learn of some of the cetaceans we may see during our journey.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>
+        <span class="talk-heading">
+          <span class="talk-title">Anchors Aweigh: How the Sea Shaped Our Language, Beliefs, and Superstitions</span>
+        </span>
+        <span class="chevron" aria-hidden="true">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4 L6 8 L10 4"/></svg>
+        </span>
+      </summary>
+      <div class="talk-body">
+        <p>Join habitual seafarer and polyglot Karen Worrall for a fascinating journey into how life at sea has shaped our everyday language, beliefs, and superstitions. Discover the origins of familiar phrases such as “pipe down” and “three sheets to the wind,” explore the curious rituals and traditions of sailors, and learn how centuries of maritime life quietly sailed ashore into daily conversation. Perfect for language lovers and maritime history enthusiasts alike.</p>
+      </div>
+    </details>
+
+
+    <!-- ============================================================
+         IN-DEPTH PORT ENRICHMENT TALKS: prose panel, no card list
+         ============================================================ -->
+    <div class="section-label"><span>In-depth Port Enrichment Talks</span></div>
+
+    <div class="prose">
+      <p>As well as around 60 destination enrichment presentations, Karen Worrall currently has more than 150 in-depth enrichment talks on cruise ports around the world, given across itineraries in the British Isles, Northern Europe, the Mediterranean, Greek Isles, Adriatic and Eastern Europe, the Atlantic Islands (Canary Islands, Madeira, the Azores and Cape Verde), North Africa, the Caribbean, North America, Canada and New England, Central and South America, Japan and South Korea, Southeast Asia, Hawaii, Polynesia, Australia and New Zealand.</p>
+      <p>Her port talks (45–60 minutes each) cover an overview of the history, culture, customs and cuisine, things to do, see, eat and drink, and how to do it all, with practical tips and advice, all based on first-hand personal experience of most cruise ports worldwide over 20 years at sea. Karen creates tailored new talks for every cruise itinerary worldwide.</p>
+    </div>
+
+
+    <!-- ============================================================
+         SAILING COMMENTARIES
+         ============================================================ -->
+    <div class="section-label"><span>Sailing Commentaries</span></div>
+
+    <details>
+      <summary>
+        <span class="talk-heading">
+          <span class="talk-title">Sail-in Commentary into Edinburgh</span>
+        </span>
+        <span class="chevron" aria-hidden="true">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4 L6 8 L10 4"/></svg>
+        </span>
+      </summary>
+      <div class="talk-body">
+        <p>Join your Conversationalist, Edinburgh native, and former Edinburgh tour guide, Karen Worrall, as she provides commentary on the passage into Edinburgh along the Firth of Forth. Karen will point out notable towns, villages, historical sites, and local wildlife, while sharing a few personal stories of growing up and living along the Forth.</p>
+      </div>
+    </details>
+
+
+    <!-- ============================================================
+         LANGUAGE CLASSES
+         ============================================================ -->
+    <div class="section-label"><span>Language Classes</span></div>
+
+    <details>
+      <summary>
+        <span class="talk-heading">
+          <span class="talk-title">Italian Essentials: Speak Like a Local</span>
+        </span>
+        <span class="chevron" aria-hidden="true">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4 L6 8 L10 4"/></svg>
+        </span>
+      </summary>
+      <div class="talk-body">
+        <p>Join Karen for a fun, practical beginner’s Italian session to help you connect with locals and enhance your time ashore. Learn key phrases for greetings, directions, shopping and dining, plus cultural tips and clear explanations to boost your confidence and enjoyment, poco a poco.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>
+        <span class="talk-heading">
+          <span class="talk-title">Greek Essentials: Speak Like a Local</span>
+        </span>
+        <span class="chevron" aria-hidden="true">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4 L6 8 L10 4"/></svg>
+        </span>
+      </summary>
+      <div class="talk-body">
+        <p>Join Karen for a fun and practical beginner’s Greek session designed to help you connect with the locals and make the most of your time ashore. Learn basic essential phrases for greetings, directions, shopping, ordering food and drinks, and more. With cultural tips and clear explanations, this class will boost your confidence and help you enjoy Greece just that little bit more, léxi pros léxi.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>
+        <span class="talk-heading">
+          <span class="talk-title">Spanish Essentials: Speak Like a Local</span>
+        </span>
+        <span class="chevron" aria-hidden="true">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4 L6 8 L10 4"/></svg>
+        </span>
+      </summary>
+      <div class="talk-body">
+        <p>Join Karen for a fun, practical beginner’s Spanish session to help you connect with locals and enhance your time ashore. Learn key phrases for greetings, directions, shopping and dining, plus cultural tips and clear explanations to boost your confidence and enjoyment, poco a poco.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>
+        <span class="talk-heading">
+          <span class="talk-title">Spanish Essentials II: Conversations Ashore</span>
+        </span>
+        <span class="chevron" aria-hidden="true">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4 L6 8 L10 4"/></svg>
+        </span>
+      </summary>
+      <div class="talk-body">
+        <p>Continue your Spanish adventure with practical phrases for exploring South America. Learn how to order local dishes, chat with shopkeepers, and enjoy easy conversations ashore, plus cultural tips to help you connect with locals and make the most of every port, un paso a la vez.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>
+        <span class="talk-heading">
+          <span class="talk-title">Speak Like a Local: Japanese Language &amp; Customs</span>
+        </span>
+        <span class="chevron" aria-hidden="true">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4 L6 8 L10 4"/></svg>
+        </span>
+      </summary>
+      <div class="talk-body">
+        <p>Prepare for your time ashore with this engaging introduction to Japanese language and customs. Karen Worrall shares essential phrases alongside cultural insights and etiquette, giving you the confidence to communicate politely, travel respectfully, and enjoy richer, more meaningful experiences throughout Japan.</p>
+      </div>
+    </details>
+
+
+    <!-- ============================================================
+         SOCIAL EVENTS WITH GUESTS
+         ============================================================ -->
+    <div class="section-label"><span>Social Events with Guests</span></div>
+
+    <details>
+      <summary>
+        <span class="talk-heading">
+          <span class="talk-title">Conversation &amp; Cocktails with Karen: Sharing Travel Stories</span>
+        </span>
+        <span class="chevron" aria-hidden="true">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4 L6 8 L10 4"/></svg>
+        </span>
+      </summary>
+      <div class="talk-body">
+        <p>Join us for a relaxed evening of conversation and cocktails with enrichment speaker Karen. Share travel stories, tips, and hidden gems with fellow explorers. Whether you’re a seasoned cruiser or curious adventurer, bring your drink and your tales, and let’s toast to the joy of discovery together.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>
+        <span class="talk-heading">
+          <span class="talk-title">Coffee &amp; Conversations with Karen</span>
+        </span>
+        <span class="chevron" aria-hidden="true">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4 L6 8 L10 4"/></svg>
+        </span>
+      </summary>
+      <div class="talk-body">
+        <p>Join Karen for a relaxed coffee chat, a friendly space to talk travel, share stories, and ask about upcoming destinations. Whether you’re after tips, curious about culture, or just in the mood for conversation, it’s the perfect way to start your day with fellow travellers.</p>
+      </div>
+    </details>
+
+
+    <!-- ============================================================
+         TEMPLATE: copy everything between the dotted lines, paste it
+         under the right region heading, then fill in the two bits
+         marked CHANGE.
+         ............................................................
+    <details>
+      <summary>
+        <span class="talk-heading">
+          <span class="talk-title">Your Talk Title Here</span>   CHANGE the title
+        </span>
+        <span class="chevron" aria-hidden="true">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4 L6 8 L10 4"/></svg>
+        </span>
+      </summary>
+      <div class="talk-body">
+        <p>Your description here.</p>                          CHANGE the description
+      </div>
+    </details>
+         ............................................................
+         To start a new region, copy this line and change the words:
+             <div class="group-label">Region Name</div>
+         Three things to watch for:
+           • Write "&amp;" instead of a bare "&" in titles and text.
+           • For a second paragraph, add another <p>...</p> line.
+           • Use commas or full stops, not long dashes.
+         ============================================================ -->
+
   </main>
 
   <footer>
     <div class="footer-inner">
-      <p class="invite">Each talk can be tailored to your audience, venue and occasion — do get in touch.</p>
-      <p class="fin">— Fin —</p>
+      <p class="invite">Each presentation can be tailored to your itinerary, audience and occasion. Do get in touch.</p>
+      <p class="fin">Karen Worrall</p>
     </div>
   </footer>
 
